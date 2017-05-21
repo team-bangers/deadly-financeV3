@@ -4,7 +4,7 @@ console.log('myApp');
 const appData = {
     questions: ['test question'],
 
-    
+
 }
 
 const handlers = {
@@ -21,6 +21,16 @@ const view = {
     addButton: function(yesorno, id){
         const target = document.getElementById(id);
         target.appendChild(this.makeButton(yesorno));
+    },
+    addQuestion: function(id){
+        const target = document.getElementById(id);
+        const question = document.createElement('p');
+        question.innerText = appData.questions[0];
+        target.appendChild(question);
     }
 }
+
+view.addQuestion('questionHere');
 view.addButton('YES', 'buttonHere');
+view.addButton('NO', 'buttonHere');
+
