@@ -14,11 +14,13 @@ const handlers = {
 const view = {
     makeButton: function(yesorno) {
         const myButton = document.createElement('button');
-        myButton.context = yesorno;
-        myButton.className = btn;
+        myButton.textContent = yesorno;
+        myButton.className = 'btn';
         return myButton;
     },
-    addButton: function(yesorno){
-        this.makeButton(yesorno);
+    addButton: function(yesorno, id){
+        const target = document.getElementById(id);
+        target.appendChild(this.makeButton(yesorno));
     }
 }
+view.addButton('YES', 'buttonHere');
