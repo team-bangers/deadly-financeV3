@@ -2,13 +2,21 @@ console.log('myApp');
 
 // you just signed up 
 const appData = {
-    questions: ['test question'],
+    counter: 0,
+    questions: ['test question', 'another question'],
 
 
 }
 
 const handlers = {
+    onbuttonclick: function(yesorno){
+        if (yesorno === 'yes'){
+            
+        } else{
 
+        }
+        view.addQuestion();
+    }
 }
 
 const view = {
@@ -16,6 +24,9 @@ const view = {
         const myButton = document.createElement('button');
         myButton.textContent = yesorno;
         myButton.className = 'btn';
+        myButton.onclick = function(yesorno){
+            handlers.onbuttonclick(yesorno);
+        }
         return myButton;
     },
     addButton: function(yesorno, id){
@@ -25,7 +36,8 @@ const view = {
     addQuestion: function(id){
         const target = document.getElementById(id);
         const question = document.createElement('p');
-        question.innerText = appData.questions[0];
+        question.innerText = appData.questions[appData.counter];
+        view.counter++;
         target.appendChild(question);
     }
 }
